@@ -1,0 +1,201 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Storefront product item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "banglaTitle": { "type": "string" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "rating": { "type": "number" },
+        "reviewsCount": { "type": "number" },
+        "inStock": { "type": "boolean" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "images": { "type": "array" },
+        "badge": { "type": "string" },
+        "description": { "type": "string" },
+        "features": { "type": "array" },
+        "specs": { "type": "object" },
+        "warranty": { "type": "string" },
+        "isHot": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "freeShipping": { "type": "boolean" }
+      },
+      "required": ["id", "title", "price", "category", "image"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "shippingFee": { "type": "number" },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "customerName", "phoneNumber", "address", "total", "status"]
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Global storefront settings and gateway configurations",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string" },
+        "tagline": { "type": "string" },
+        "hotline": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "insideDeliveryCharge": { "type": "number" },
+        "outsideDeliveryCharge": { "type": "number" },
+        "freeShippingAbove": { "type": "number" },
+        "aboutUsText": { "type": "string" },
+        "termsConditions": { "type": "string" },
+        "returnPolicy": { "type": "string" },
+        "primaryColor": { "type": "string" },
+        "colors": { "type": "object" },
+        "sizes": { "type": "object" },
+        "couriers": { "type": "array" },
+        "gatewayControl": { "type": "object" },
+        "personalAccounts": { "type": "array" },
+        "bkashPraAccounts": { "type": "array" },
+        "merchantAccounts": { "type": "array" },
+        "categories": { "type": "array" }
+      }
+    },
+    "LandingPage": {
+      "title": "LandingPage",
+      "description": "Promotional landing campaign page",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "productId": { "type": "string" },
+        "title": { "type": "string" },
+        "headline": { "type": "string" },
+        "banglaHeadline": { "type": "string" },
+        "subheadline": { "type": "string" },
+        "badge": { "type": "string" },
+        "offerPrice": { "type": "number" },
+        "regularPrice": { "type": "number" },
+        "videoUrl": { "type": "string" },
+        "features": { "type": "array" },
+        "reviewsCount": { "type": "number" },
+        "rating": { "type": "number" },
+        "active": { "type": "boolean" },
+        "timerHours": { "type": "number" }
+      },
+      "required": ["id", "productId", "title", "offerPrice"]
+    },
+    "HomeSection": {
+      "title": "HomeSection",
+      "description": "Dynamic homepage display section",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "banglaTitle": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "badge": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string" },
+        "layout": { "type": "string" },
+        "active": { "type": "boolean" },
+        "order": { "type": "number" }
+      },
+      "required": ["id", "title", "type"]
+    },
+    "BannerSlide": {
+      "title": "BannerSlide",
+      "description": "Hero promotional banner slide",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "image": { "type": "string" },
+        "title": { "type": "string" },
+        "banglaTitle": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "ctaText": { "type": "string" },
+        "active": { "type": "boolean" },
+        "link": { "type": "string" },
+        "linkType": { "type": "string" },
+        "openInNewTab": { "type": "boolean" }
+      },
+      "required": ["id", "image", "title"]
+    },
+    "MediaItem": {
+      "title": "MediaItem",
+      "description": "Media library asset item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "url"]
+    },
+    "PromoCode": {
+      "title": "PromoCode",
+      "description": "Storefront discount coupon created by admin",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "discountType": { "type": "string", "enum": ["amount", "percentage"] },
+        "discountValue": { "type": "number" },
+        "minPurchase": { "type": "number" },
+        "maxDiscount": { "type": "number" },
+        "expireDate": { "type": "string" },
+        "active": { "type": "boolean" },
+        "usageCount": { "type": "number" }
+      },
+      "required": ["id", "code", "discountType", "discountValue", "expireDate"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "Catalog products for public browsing and admin management"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Orders created by customers and managed by store administrators"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/StoreSettings" },
+      "description": "Global store settings, delivery charges, colors, couriers, and payment accounts"
+    },
+    "/landing_pages/{landingPageId}": {
+      "schema": { "$ref": "#/entities/LandingPage" },
+      "description": "Promotional single-product landing campaigns"
+    },
+    "/sections/{sectionId}": {
+      "schema": { "$ref": "#/entities/HomeSection" },
+      "description": "Storefront homepage sections and layouts"
+    },
+    "/banners/{bannerId}": {
+      "schema": { "$ref": "#/entities/BannerSlide" },
+      "description": "Homepage slider banners"
+    },
+    "/media/{mediaId}": {
+      "schema": { "$ref": "#/entities/MediaItem" },
+      "description": "Storefront media library assets"
+    },
+    "/promo_codes/{promoCodeId}": {
+      "schema": { "$ref": "#/entities/PromoCode" },
+      "description": "Promotional discount codes created by admin"
+    }
+  }
+}

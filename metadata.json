@@ -1,0 +1,6 @@
+{
+  "name": "Duari Shop - Doorstep Delivery",
+  "description": "Duari Shop e-commerce platform offering fast doorstep delivery on electronics, gadgets, gaming consoles, accessories, and home items with animated interactions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,71 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Storefront Products (Public read, admin write)
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Orders (Customer order placement, admin management)
+    match /orders/{orderId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    // Store Settings & Configurations
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Promotional Landing Pages
+    match /landing_pages/{landingPageId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Dynamic Homepage Sections
+    match /sections/{sectionId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Slider Banners
+    match /banners/{bannerId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Media Library
+    match /media/{mediaId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Promotional Discount Codes
+    match /promo_codes/{promoCodeId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Customers & Customer Profiles
+    match /customers/{customerId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // System flags & metadata
+    match /_system/{systemId} {
+      allow read, write: if true;
+    }
+
+    // Health check ping
+    match /_health/{healthId} {
+      allow read, write: if true;
+    }
+  }
+}
